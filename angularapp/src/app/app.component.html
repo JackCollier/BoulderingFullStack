@@ -1,0 +1,25 @@
+
+<p *ngIf="!routes"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+<app-add-route-form></app-add-route-form>
+<table *ngIf="routes">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Rating</th>
+        <th>Date Climbed</th>
+        <th>Image</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let route of routes">
+        <td>{{ route.name }}</td>
+        <td>{{ route.description }}</td>
+        <td>{{ route.rating }}</td>
+        <td>{{ route.dateAdded }}</td>
+        <td><img src={{route.imageLink}} /></td>
+        <button (click)="DeleteRoutes(route.id)">Delete</button>
+      </tr>
+    </tbody>
+</table>
